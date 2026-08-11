@@ -3,110 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Onchain Market Maker for Token Issuers | Arrakis Finance</title>
+    <title>Arrakis Finance | Onchain Market Making</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,500&family=Fragment+Mono&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,600&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Full-screen 3D wave mesh -->
+    <!-- Interactive Glow Spotlight -->
+    <div id="cursor-glow" class="cursor-glow" aria-hidden="true"></div>
+
+    <!-- 3D Liquid Wave Silk Canvas -->
     <canvas id="wave-canvas" aria-hidden="true"></canvas>
-    <canvas id="grain-canvas" aria-hidden="true"></canvas>
 
     <header class="site-header" id="site-header">
         <div class="container nav-wrap">
             <a href="#" class="brand">
-                <span class="brand-icon">✦</span> Arrakis
+                <svg class="brand-logo" width="26" height="26" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 6L16 16L6 26H11L18.5 18.5L26 26H30L19.5 15.5L29 6H24L17 13L10.5 6H6Z" fill="white"/>
+                </svg>
+                <span class="brand-text">ARRAKIS</span>
             </a>
+            
             <nav class="desktop-nav">
                 <ul>
-                    <li><a href="#solutions">Products</a></li>
-                    <li><a href="#cases">Use Cases</a></li>
-                    <li><a href="#research">Resources</a></li>
+                    <li class="dropdown">
+                        <a href="#solutions">Solutions <span class="chevron">˅</span></a>
+                    </li>
                     <li><a href="#blog">Blog</a></li>
+                    <li><a href="#docs">Docs</a></li>
                 </ul>
             </nav>
-            <a href="#contact" class="btn btn-amber contact-btn">Contact us</a>
+
+            <div class="nav-actions">
+                <a href="#app" class="btn btn-outline">Enter app</a>
+                <a href="#contact" class="btn btn-amber">Contact us</a>
+            </div>
+
             <button class="mobile-menu-btn" aria-label="Toggle menu">
-                <span class="hamburger-line"></span><span class="hamburger-line"></span><span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
             </button>
         </div>
     </header>
 
     <main>
         <section class="hero" id="hero">
-            <div class="container hero-content">
-                <a href="#guide" class="promo-pill">
-                    <span class="pill-label">Guide</span>
-                    <span class="pill-text">The Practical Guide to TGE 2026</span>
-                    <span class="pill-arrow">→</span>
-                </a>
-                
-                <p class="kicker">ONCHAIN MARKET MAKING</p>
-                <h1 class="hero-title">
-                    We Build Onchain Markets<br>
-                    <em class="hero-italic">Liquid and Efficient</em>
-                </h1>
-                
-                <p class="hero-desc">
-                    100+ token issuers trust Arrakis for non-custodial, automated liquidity management across Uniswap V4, Aerodrome, PancakeSwap, and Velodrome.
-                </p>
-            </div>
-
-            <div class="container">
-                <div class="hero-visual">
-                    <canvas id="hero-wave-canvas" aria-hidden="true"></canvas>
-                    <div class="hero-visual-overlay"></div>
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <a href="#guide" class="promo-pill animate-fade-in delay-1">
+                        <span class="pill-badge">Guide</span>
+                        <span class="pill-text">The Practical Guide to TGE 2026</span>
+                        <span class="pill-arrow">→</span>
+                    </a>
                     
-                    <div class="logo-ticker">
-                        <div class="ticker-track">
-                            <span>Uniswap</span><span>Aerodrome</span><span>PancakeSwap</span><span>Velodrome</span>
-                            <span>Hyperliquid</span><span>Base</span><span>Arbitrum</span><span>Ethereum</span>
-                            <span>Uniswap</span><span>Aerodrome</span><span>PancakeSwap</span><span>Velodrome</span>
+                    <p class="kicker animate-fade-in delay-2">Onchain Market Making</p>
+                    
+                    <h1 class="hero-title animate-fade-in delay-3">
+                        We Make Onchain Markets<br>
+                        <span class="hero-serif">Liquid and Efficient</span>
+                    </h1>
+                </div>
+
+                <!-- Infinite Marquee Ticker for Partner Logos at Hero Bottom -->
+                <div class="partners-hero animate-fade-in delay-4">
+                    <div class="logo-marquee">
+                        <div class="marquee-track">
+                            <div class="partner-item">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 22,8.5 22,19.5 12,26 2,19.5 2,8.5"/></svg>
+                                <span>RedStone</span>
+                            </div>
+                            <div class="partner-item">
+                                <svg width="24" height="20" viewBox="0 0 24 20" fill="currentColor"><path d="M12 0L15 7H24L17 12L20 20L12 15L4 20L7 12L0 7H9L12 0Z"/></svg>
+                                <span>Maple</span>
+                            </div>
+                            <div class="partner-item partner-text-logo">
+                                <span>WORMHOLE</span>
+                            </div>
+                            <div class="partner-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="3" rx="1.5"/><rect x="3" y="10.5" width="18" height="3" rx="1.5"/><rect x="3" y="17" width="18" height="3" rx="1.5"/></svg>
+                                <span>Euler</span>
+                            </div>
+                            <div class="partner-item">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 22,8.5 22,19.5 12,26 2,19.5 2,8.5"/></svg>
+                                <span>RedStone</span>
+                            </div>
+                            <div class="partner-item">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="3" fill="none"/><circle cx="12" cy="12" r="4"/></svg>
+                                <span>bitpanda</span>
+                            </div>
+                            <div class="partner-item">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 6A6 6 0 1 0 18 12"/></svg>
+                                <span>Centrifuge</span>
+                            </div>
+                            <!-- Duplicated track for infinite seamless scroll -->
+                            <div class="partner-item">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 22,8.5 22,19.5 12,26 2,19.5 2,8.5"/></svg>
+                                <span>RedStone</span>
+                            </div>
+                            <div class="partner-item">
+                                <svg width="24" height="20" viewBox="0 0 24 20" fill="currentColor"><path d="M12 0L15 7H24L17 12L20 20L12 15L4 20L7 12L0 7H9L12 0Z"/></svg>
+                                <span>Maple</span>
+                            </div>
+                            <div class="partner-item partner-text-logo">
+                                <span>WORMHOLE</span>
+                            </div>
+                            <div class="partner-item">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="4" width="18" height="3" rx="1.5"/><rect x="3" y="10.5" width="18" height="3" rx="1.5"/><rect x="3" y="17" width="18" height="3" rx="1.5"/></svg>
+                                <span>Euler</span>
+                            </div>
+                            <div class="partner-item">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 22,8.5 22,19.5 12,26 2,19.5 2,8.5"/></svg>
+                                <span>RedStone</span>
+                            </div>
+                            <div class="partner-item">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="3" fill="none"/><circle cx="12" cy="12" r="4"/></svg>
+                                <span>bitpanda</span>
+                            </div>
+                            <div class="partner-item">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M12 6A6 6 0 1 0 18 12"/></svg>
+                                <span>Centrifuge</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="hero-metrics container">
-                <article class="metric-card">
-                    <p class="metric-label">Token issuers supported</p>
-                    <p class="metric-value" data-count="220" data-suffix="+">0+</p>
-                </article>
-                <article class="metric-card">
-                    <p class="metric-label">Onchain volume managed</p>
-                    <p class="metric-value" data-count="8.4" data-prefix="$" data-suffix="B+">$0B+</p>
-                </article>
-            </div>
         </section>
 
-        <section id="cases" class="cases">
+        <!-- Metrics Section -->
+        <section class="metrics-section">
             <div class="container">
-                <header class="section-head animate-on-scroll">
-                    <p class="kicker">CASE STUDIES</p>
-                    <h2>Proven market making across project tokens, RWAs, and equities.</h2>
-                </header>
-
-                <div class="case-layout">
-                    <div class="case-tabs">
-                        <button class="tab-btn active">Morpho</button>
-                        <button class="tab-btn">Maple</button>
-                        <button class="tab-btn">Bitpanda</button>
-                    </div>
-
-                    <article class="case-card">
-                        <div class="case-copy">
-                            <h3>Deeper markets, less capital</h3>
-                            <p>Discover how Morpho utilized automated liquidity management to drastically increase their liquidity depth while simultaneously reducing the capital required to sustain it onchain.</p>
-                            <a href="#" class="text-link">Learn More →</a>
-                        </div>
-                        <div class="case-visual">
-                            <div class="glass-card g-card-1"><span>USDC</span><strong>50%</strong></div>
-                            <div class="glass-card g-card-2"><span>Project Token</span><strong>50%</strong></div>
-                            <div class="glass-card g-card-3"><span>Efficiency</span><strong>+23%</strong></div>
-                        </div>
+                <div class="metrics-grid">
+                    <article class="metric-card animate-on-scroll">
+                        <p class="metric-label">Token Issuers Supported</p>
+                        <p class="metric-value" data-count="220" data-suffix="+">0+</p>
+                    </article>
+                    <article class="metric-card animate-on-scroll">
+                        <p class="metric-label">Onchain Volume Managed</p>
+                        <p class="metric-value" data-count="8.4" data-prefix="$" data-suffix="B+">$0B+</p>
+                    </article>
+                    <article class="metric-card animate-on-scroll">
+                        <p class="metric-label">DEX Protocols Integrated</p>
+                        <p class="metric-value" data-count="15" data-suffix="+">0+</p>
                     </article>
                 </div>
             </div>
@@ -115,96 +155,79 @@
         <section id="solutions" class="solutions">
             <div class="container">
                 <header class="section-head animate-on-scroll">
-                    <p class="kicker">PRODUCTS</p>
-                    <h2>Our solutions</h2>
+                    <p class="kicker-sm">PRODUCTS</p>
+                    <h2>Automated Non-Custodial Liquidity Management</h2>
                 </header>
 
                 <div class="solution-grid">
-                    <article class="sol-card animate-on-scroll">
-                        <h3>Project Tokens</h3>
-                        <h4>Launch with actively managed deep liquidity</h4>
-                        <p>Deploy token liquidity strategically at TGE. Maximize efficiency, capture fees, and ensure healthy market conditions without relying on centralized market makers.</p>
-                        <div class="sol-visual">
-                            <div class="micro-chart"><span>USDC</span><span>50% +23%</span></div>
-                            <div class="mini-planet planet-warm"></div>
+                    <article class="sol-card animate-on-scroll glow-tilt">
+                        <div class="sol-tag">PROJECT TOKENS</div>
+                        <h3>Launch with managed deep liquidity</h3>
+                        <p>Deploy token liquidity strategically at TGE across Uniswap V4, Aerodrome, and PancakeSwap with algorithmic spread management and fee optimization.</p>
+                        <div class="sol-footer">
+                            <span class="sol-stat">Efficiency <strong>+28%</strong></span>
                         </div>
                     </article>
 
-                    <article class="sol-card animate-on-scroll">
-                        <h3>Yield-Bearing RWAs</h3>
-                        <h4>Increase TVL with deep secondary markets</h4>
-                        <p>Provide 24/7 liquid secondary markets for Real World Assets. Keep spreads tight and allow large exits with minimal slippage to attract institutional flow.</p>
-                        <div class="sol-visual">
-                            <div class="token-pills">
-                                <span class="t-pill">deJAAA</span>
-                                <span class="t-pill">syrupUSDC</span>
-                                <span class="t-pill">DGLD</span>
+                    <article class="sol-card animate-on-scroll glow-tilt">
+                        <div class="sol-tag">YIELD-BEARING RWAS</div>
+                        <h3>Deep 24/7 secondary markets</h3>
+                        <p>Provide liquid secondary markets for tokenized Real World Assets, ensuring tight spreads and institutional exit liquidity with automated rebalancing.</p>
+                        <div class="sol-footer">
+                            <span class="sol-stat">Slippage <strong>&lt;0.05%</strong></span>
+                        </div>
+                    </article>
+
+                    <article class="sol-card animate-on-scroll glow-tilt">
+                        <div class="sol-tag">COMMODITIES &amp; EQUITIES</div>
+                        <h3>Bootstrap synthetic asset pairs</h3>
+                        <p>Maintain accurate price pegging and continuous market depth for synthetic commodities and cross-chain tokenized assets with custom vaults.</p>
+                        <div class="sol-footer">
+                            <span class="sol-stat">Uptime <strong>99.99%</strong></span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="cases" class="cases">
+            <div class="container">
+                <header class="section-head animate-on-scroll">
+                    <p class="kicker-sm">CASE STUDIES</p>
+                    <h2>Trusted by leading DeFi protocols</h2>
+                </header>
+
+                <div class="case-layout animate-on-scroll">
+                    <div class="case-tabs">
+                        <button class="tab-btn active" data-tab="0">Morpho</button>
+                        <button class="tab-btn" data-tab="1">Maple</button>
+                        <button class="tab-btn" data-tab="2">Bitpanda</button>
+                    </div>
+
+                    <article class="case-card glow-tilt">
+                        <div class="case-copy">
+                            <span class="case-badge">Case Study</span>
+                            <h3 id="case-title">Deeper markets, less capital</h3>
+                            <p id="case-desc">Discover how Morpho utilized automated liquidity management to drastically increase their liquidity depth while simultaneously reducing the capital required to sustain it onchain.</p>
+                            <a href="#" class="text-link">Read full case study →</a>
+                        </div>
+                        <div class="case-stats">
+                            <div class="stat-box">
+                                <span class="stat-num">+230%</span>
+                                <span class="stat-lbl">Liquidity Depth</span>
                             </div>
-                            <div class="mini-planet planet-cool"></div>
+                            <div class="stat-box">
+                                <span class="stat-num">-40%</span>
+                                <span class="stat-lbl">Capital Overhead</span>
+                            </div>
                         </div>
                     </article>
-
-                    <article class="sol-card animate-on-scroll">
-                        <h3>Commodities &amp; Equities</h3>
-                        <h4>Bootstrap deep onchain markets</h4>
-                        <p>Bring traditional markets onchain with capital-efficient liquidity provisioning. Maintain peg and price discovery efficiently for synthetic commodities and equities.</p>
-                        <div class="sol-visual">
-                            <ul class="stock-list">
-                                <li>Gasoline <span class="pos">+5.7%</span></li>
-                                <li>Wheat <span class="neg">-1.2%</span></li>
-                            </ul>
-                            <div class="ticker-pulse"></div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="partners">
-            <div class="container">
-                <h2 class="animate-on-scroll">Making markets on</h2>
-            </div>
-            <div class="logo-marquee">
-                <div class="marquee-track">
-                    <div class="p-pill">Uniswap V4</div><div class="p-pill">Aerodrome</div><div class="p-pill">Hyperliquid</div>
-                    <div class="p-pill">Velodrome</div><div class="p-pill">PancakeSwap</div><div class="p-pill">Base</div>
-                    <div class="p-pill">Arbitrum</div><div class="p-pill">Ethereum</div>
-                    <div class="p-pill">Uniswap V4</div><div class="p-pill">Aerodrome</div><div class="p-pill">Hyperliquid</div>
-                    <div class="p-pill">Velodrome</div><div class="p-pill">PancakeSwap</div><div class="p-pill">Base</div>
-                    <div class="p-pill">Arbitrum</div><div class="p-pill">Ethereum</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="research" class="research">
-            <div class="container">
-                <div class="research-grid animate-on-scroll">
-                    <a href="#" class="research-link">
-                        <span class="res-num">01</span>
-                        <h3>Who is trading on HIP-3</h3>
-                        <span class="res-arrow">→</span>
-                    </a>
-                    <a href="#" class="research-link">
-                        <span class="res-num">02</span>
-                        <h3>For 49 hours, onchain oil stayed liquid</h3>
-                        <span class="res-arrow">→</span>
-                    </a>
-                    <a href="#" class="research-link">
-                        <span class="res-num">03</span>
-                        <h3>DEX liquidity design 101</h3>
-                        <span class="res-arrow">→</span>
-                    </a>
-                    <a href="#" class="research-link">
-                        <span class="res-num">04</span>
-                        <h3>Can onchain markets predict equities?</h3>
-                        <span class="res-arrow">→</span>
-                    </a>
                 </div>
             </div>
         </section>
 
         <section class="cta" id="contact">
-            <div class="container cta-wrap">
+            <div class="container cta-wrap animate-on-scroll">
                 <div class="cta-glow"></div>
                 <h2>Make your onchain markets liquid and efficient.</h2>
                 <a href="#" class="btn btn-amber cta-btn">Get in touch</a>
@@ -216,38 +239,41 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="f-col f-brand">
-                    <a href="#" class="f-logo">✦ Arrakis</a>
+                    <a href="#" class="f-logo">
+                        <svg class="brand-logo" width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M6 6L16 16L6 26H11L18.5 18.5L26 26H30L19.5 15.5L29 6H24L17 13L10.5 6H6Z" fill="white"/></svg>
+                        <span>ARRAKIS</span>
+                    </a>
                     <p>Onchain Market Maker for Token Issuers</p>
                 </div>
                 <div class="f-col">
-                    <h4>Products</h4>
+                    <h4>Solutions</h4>
                     <ul>
                         <li><a href="#">Project Tokens</a></li>
-                        <li><a href="#">Yield-Bearing RWAs</a></li>
-                        <li><a href="#">Commodities &amp; Equities</a></li>
+                        <li><a href="#">Yield RWAs</a></li>
+                        <li><a href="#">Synthetic Assets</a></li>
                     </ul>
                 </div>
                 <div class="f-col">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="#">Research</a></li>
                         <li><a href="#">Documentation</a></li>
                         <li><a href="#">TGE Guide</a></li>
+                        <li><a href="#">Research</a></li>
                     </ul>
                 </div>
                 <div class="f-col">
                     <h4>Company</h4>
                     <ul>
-                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
                         <li><a href="#">Careers</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Arrakis Finance</p>
+                <p>&copy; 2026 Arrakis Finance. All rights reserved.</p>
                 <div class="social-links">
-                    <a href="#">Twitter/X</a>
+                    <a href="#">Twitter / X</a>
                     <a href="#">Discord</a>
                     <a href="#">GitHub</a>
                 </div>
